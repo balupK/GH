@@ -12,4 +12,8 @@ export class UserProfileService {
     return this.http.get(this.BASE_URl + "/profiles");
   }
 
+  putUserProfile(profile) {
+    return this.http.put(this.BASE_URl + "/profiles",profile);
+  }
+
 }

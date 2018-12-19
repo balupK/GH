@@ -9,8 +9,19 @@ import { UserProfileService } from '../../services/userProfile.service'
 })
 export class ProfileComponent implements OnInit {
 
+  profile = {};
   constructor(private httpClient : HttpClient, private userProfileService:UserProfileService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.userProfileService.getUserProfile().subscribe(profile => {
+
+    });
+  }
+
+  updateProfile() {
+    this.userProfileService.putUserProfile(this.profile).subscribe(profile => {
+      
+    });
+  }
 
 }

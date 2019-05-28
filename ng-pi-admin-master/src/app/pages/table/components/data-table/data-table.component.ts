@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input, Output , EventEmitter} from '@angular/core';
 import { TablesDataService } from './tablesData.service';
 
 @Component({
@@ -13,11 +13,22 @@ export class DataTableComponent implements OnInit {
   /* pagination Info */
   pageSize = 10;
   pageNumber = 1;
+  @Input() columns: Array<any> = [];
+  @Input() rows: Array<any> = [];
+
+  @Output()
+  customer = new EventEmitter();
 
   constructor(private _tablesDataService: TablesDataService) { }
 
   ngOnInit() {
-    this.loadData();
+    //  this.loadData();
+     console.log("columns",this.columns)
+    //  this.columns = [{name :'FIRSTNAME', value : 'firstName'},
+    //  {name :'LASTNAME', value : 'lastName'},
+    //  {name :'USERNAME', value : 'username'},
+    //  {name :'EMAIL', value : 'email'},
+    //  {name :'AGE', value : 'age'}]
   }
 
   loadData() {
@@ -28,4 +39,10 @@ export class DataTableComponent implements OnInit {
     this.pageNumber = pN;
   }
 
+  gotoInvoicePage(customerObject : any){
+
+    console.log(customerObject)
+    this.customer.emit(customerObject);
+
+  }
 }

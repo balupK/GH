@@ -1,0 +1,81 @@
+
+<input
+type='text'
+style='padding:8px;margin:15px auto;width:30%;'
+placeholder='Type to filter the name column...'
+(keyup)='updateFilter($event)'
+/>
+<!-- <ngx-datatable
+class="bootstrap striped"
+[rows]="rows"
+[columns]="columns"
+[headerHeight]="50"
+[footerHeight]="50"
+[rowHeight]="'auto'"
+[limit]="10" >
+</ngx-datatable> -->
+<app-data-table [rows]="rows" [columns]="columns" (customer)="displayInvoice($event)"></app-data-table>
+<!-- <div class="row" *ngIf="customerExists === false">
+  <div class="col-md-4">
+    <input *ngIf="config.filtering" placeholder="Filter all columns"
+           [ngTableFiltering]="config.filtering"
+           class="form-control"
+           (tableChanged)="onChangeTable(config)"/>
+  </div>
+</div>
+<br> 
+<ng-table [config]="config"
+          (tableChanged)="onChangeTable(config)"
+          (cellClicked)="onCellClick($event)"
+          [rows]="rows" [columns]="columns">
+</ng-table>
+<pagination-controls *ngIf="config.paging"
+            class="pagination-sm"
+            (pageChange)="onChangeTable(config, $event)"
+            (numPages)="numPages = $event">
+</pagination-controls>
+<pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>
+-->
+
+<!-- [(ngModel)]="page"
+            [totalItems]="length"
+            [itemsPerPage]="itemsPerPage"
+            [maxSize]="maxSize"
+            [boundaryLinks]="true"
+            [rotate]="false" -->
+
+
+<!-- <div class="row" *ngIf="customerExists === false">
+  <div class="col-md-12">
+    Add Customer <button> + </button>
+  </div>
+  <div class="col-md-12">
+      Select Customer :
+      <card cardTitle="Data Table">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>SHOP NAME</th>
+                <th>EMAIL</th>
+                <th>STATE</th>
+                <th>MOBILE</th>
+                <th>STATE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let customer of customerData">  | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index">
+                <td><a id={{customer.id}} (click)="gotoInvoicePage(customer)">{{customer.name}}</a></td>
+                <td>{{customer.shopName}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.state}}</td>
+                <td>{{customer.mobile}}</td>
+                <td>
+                  <span class="label label-info">info</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </card>
+    </div>
+</div> -->

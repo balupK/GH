@@ -4,24 +4,22 @@
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th>FIRSTNAME</th>
-            <th>LASTNAME</th>
-            <th>USERNAME</th>
-            <th>EMAIL</th>
-            <th>AGE</th>
-            <th>STATE</th>
+            <th *ngFor="let c of columns">{{c.name}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of tableData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index">
-            <td>{{item.firstName}}</td>
-            <td>{{item.lastName}}</td>
+          <tr *ngFor="let item of rows | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index">
+            <td *ngFor="let c of columns">
+              <span *ngIf="!c.type">{{item[c.value]}}</span>
+              <a *ngIf="c.type == 'link'" (click)='gotoInvoicePage(item)'>{{item[c.value]}}</a>
+            </td>
+            <!-- <td>{{item.lastName}}</td>
             <td>{{item.username}}</td>
             <td>{{item.email}}</td>
-            <td>{{item.age}}</td>
-            <td>
+            <td>{{item.age}}</td> -->
+            <!-- <td>
               <span class="label label-info">info</span>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>

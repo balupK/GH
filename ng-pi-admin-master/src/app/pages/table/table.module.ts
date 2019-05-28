@@ -16,12 +16,15 @@ import { DataTableComponent } from './components/data-table/data-table.component
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedModule,
-        routing
+        SharedModule
+        // routing
     ],
     declarations: [
         TableComponent,
         BasicTablesComponent,
+        DataTableComponent
+    ],
+    exports: [
         DataTableComponent
     ]
 })

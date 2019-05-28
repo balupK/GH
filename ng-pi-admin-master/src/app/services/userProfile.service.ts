@@ -1,19 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment} from './../../environments/environment'
+import { RequestOptions } from '@angular/http';
 
 @Injectable()
 export class UserProfileService {
 
+  httpOptions = {
+    headers: new HttpHeaders({ 
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Credentials':'true',
+      'content-type':'application/json'
+    })
+  };
+   
+  
   BASE_URl = environment.apiBaseUrl;
   constructor(private http: HttpClient) { }
 
   getUserProfile() {
-    return this.http.get(this.BASE_URl + "/profiles");
+    
+    return this.http.get(this.BASE_URl + "customer/getAll");//, this.httpOptions);
   }
 
-  putUserProfile(profile) {
-    return this.http.put(this.BASE_URl + "/profiles",profile);
+  postUserProfile(profile) {
+    return this.http.post(this.BASE_URl + "user/createCustomer",profile);
+  }
+
+  postInvoice(invoiceData) {
+    return this.http.post(this.BASE_URl + "invoice/new",invoiceData);
   }
 
 }

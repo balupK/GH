@@ -1,0 +1,7 @@
+<!-- <app-select-customer [isCustomerSelected]="isSelectedCustomer" (customer)="displayInvoice($event)"></app-select-customer>
+<app-new-invoice (isInvoicePageOpen)="invoicePageStatus($event)" [isCustomerSelected]="isSelectedCustomer" [customerDetail]="customer"></app-new-invoice>
+ -->
+
+
+<app-select-customer *ngIf="isSelectedCustomer === false" (customer)="displayInvoice($event)"></app-select-customer>
+<app-new-invoice *ngIf="isSelectedCustomer === true" (isInvoicePageOpen)="invoicePageStatus($event)" [isCustomerSelected]="isSelectedCustomer" [customerDetail]="customer"></app-new-invoice>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-3 text-center">
+    <h3>Select files</h3>
+    <div ng2FileDrop [ngClass]="{'another-file-over-class': hasAnotherDropZoneOver}" (fileOver)="fileOverAnother($event)" [uploader]="uploader"
+      class="well my-drop-zone">
+     drop here
+     <img class="preview-img"  #myInput src="" thumbnail [image]="uploader.queue[0]?._file"/>
+     <!-- <img class="preview-img" [src]="https://www.everythingcarers.org.au/media/1982/sample.jpg"/> -->
+    </div>
+    <br/> 
+    <input type="file" ng2FileSelect [uploader]="uploader" (change)="onChange($event)" />
+    <button type="button" class="btn btn-success btn-s m-5" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+      <span class="glyphicon glyphicon-upload"></span> Upload
+    </button>
+  </div>
+</div>

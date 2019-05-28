@@ -15,6 +15,11 @@ export let MENU_ITEM = [
         icon: 'diamond'
     },
     {
+        path: 'Invoice',
+        title: 'Invoice',
+        icon: 'diamond'
+    },
+    {
         path: 'profile',
         title: 'User Profile',
         icon: 'user'
@@ -78,6 +83,10 @@ export let MENU_ITEM = [
             {
                 path: 'ng2-select',
                 title: 'Ng2-Select'
+            },
+            {
+                path: 'app-file-upload',
+                title: 'App File Upload'
             }
         ]
     },
@@ -92,7 +101,7 @@ export let MENU_ITEM = [
             }
         ]
     },
-    {
+    /*{
         path: 'table',
         title: 'Tables',
         icon: 'table',
@@ -106,7 +115,7 @@ export let MENU_ITEM = [
                 title: 'Data Table'
             }
         ]
-    },
+    },*/
     {
         path: 'menu-levels',
         title: 'Menu Levels',

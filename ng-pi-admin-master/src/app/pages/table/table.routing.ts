@@ -9,8 +9,8 @@ const childRoutes: Routes = [
         component: TableComponent,
         children: [
             { path: '', redirectTo: 'default-tables', pathMatch: 'full' },
-            { path: 'basic-tables', component: BasicTablesComponent },
-            { path: 'data-table', component: DataTableComponent },
+            { path: 'basic-tables', component: BasicTablesComponent }
+            // { path: 'data-table', component: DataTableComponent },
         ]
     }
 ];

@@ -13,13 +13,15 @@ export class ProfileComponent implements OnInit {
   constructor(private httpClient : HttpClient, private userProfileService:UserProfileService) { }
 
   ngOnInit() {
-    this.userProfileService.getUserProfile().subscribe(profile => {
-
-    });
+    
   }
 
+  /*this.userProfileService.getUserProfile().subscribe(profile => {
+
+  });*/
   updateProfile() {
-    this.userProfileService.putUserProfile(this.profile).subscribe(profile => {
+    console.log(this.profile);
+    this.userProfileService.postUserProfile(this.profile).subscribe(profile => {
       
     });
   }

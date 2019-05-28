@@ -4,7 +4,7 @@ import { FileUploader } from 'ng2-file-upload';
 const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 @Component({
-  selector: 'app-file-upload',
+  selector: 'file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss']
 })

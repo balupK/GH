@@ -5,36 +5,64 @@
   <div class="col-md-8">
     <div class="row card card-block">
       <div class="col-md-6 form-group">
-        <label class="control-label">Username</label>
-        <input type="text" name="userName" [(ngModel)]="profile.userName" class="form-control" placeholder="Username">
+        <label class="control-label">Name</label>
+        <input type="text" name="name" [(ngModel)]="profile.name" class="form-control" placeholder="Username">
       </div>
       <div class="col-md-6 form-group">
-        <label class="control-label">Userpost</label>
-        <input type="text" class="form-control" placeholder="Userpost">
+        <label class="control-label">Shop Name</label>
+        <input type="text" name="shopName" [(ngModel)]="profile.shopName" class="form-control" placeholder="Shop Name">
       </div>
-      <div class="col-md-4 form-group">
-        <label class="control-label">Username</label>
-        <input type="text" class="form-control" placeholder="Username">
+      <div class="col-md-6 form-group">
+        <label class="control-label">Gst Number</label>
+        <input type="text" name="gstNo" [(ngModel)]="profile.gstNo" class="form-control" placeholder="GST Number">
       </div>
-      <div class="col-md-4 form-group">
-        <label class="control-label">Username</label>
-        <input type="text" class="form-control" placeholder="Username">
+      <div class="col-md-6 form-group">
+        <label class="control-label">Email</label>
+        <input type="text" name="email" [(ngModel)]="profile.email" class="form-control" placeholder="Email">
       </div>
-      <div class="col-md-4 form-group">
-        <label class="control-label">Username</label>
-        <input type="text" class="form-control" placeholder="Username">
-      </div>
+
       <div class="col-md-12 form-group">
-        <label class="control-label">Username</label>
-        <input type="text" class="form-control" placeholder="Username">
+        <label class="control-label">Shop Address</label>
+        <textarea class="form-control"  name="address" [(ngModel)]="profile.address" placeholder="Address"></textarea>
       </div>
-      <div class="col-md-12 form-group">
-        <label class="control-label">Username</label>
-        <textarea class="form-control" placeholder="Username"></textarea>
+
+      <div class="col-md-4 form-group">
+        <label class="control-label">Mobile</label>
+        <input type="text" name="mobile" [(ngModel)]="profile.mobile" class="form-control" placeholder="Mobile">
       </div>
+
+      <div class="col-md-4 form-group">
+        <label class="control-label">State</label>
+        <input type="text" name="state" [(ngModel)]="profile.state" class="form-control" placeholder="State">
+      </div>
+
+      <div class="col-md-4 form-group">
+        <label class="control-label">Country</label>
+        <input type="text" name="country" [(ngModel)]="profile.country" class="form-control" placeholder="Country">
+      </div>
+
+      <div class="col-md-4 form-group">
+        <label class="control-label">Pincode</label>
+        <input type="text" name="pincode" [(ngModel)]="profile.pincode" class="form-control" placeholder="Pincode">
+      </div>
+
+      <div class="col-md-4 form-group">
+        <label class="control-label">Land Line </label>
+        <input type="text" name="landLine" [(ngModel)]="profile.landLine" class="form-control" placeholder="Landmark">
+      </div>
+
+      <div class="col-md-4 form-group">
+        <label class="control-label">Reference By</label>
+        <input type="text" name="referenceBy" [(ngModel)]="profile.referenceBy" class="form-control" placeholder="Referency By">
+      </div>
+  
       <div class="col-md-12">
         <button class="btn btn-primary" (click)="updateProfile()">Update Profile</button>
       </div>
     </div>
   </div>
+  
 </div>
+<!-- <div class="row">
+    <app-file-upload></app-file-upload>
+</div>  -->

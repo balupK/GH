@@ -1,0 +1,105 @@
+
+<div class="card card-block animated fadeIn"  *ngIf="customerExists === true">
+    <div class="row" id="invoiceBill">
+      <card cardTitle="INVOICE BILL">
+      <div class="col-md-12">
+          <table class="table table-bordered table-hover" border="1">
+             <tr>
+                  <td>
+                    <b>Name :</b>
+                  </td>
+                  <td>
+                      <input type="text" value="{{customer.name}}" readonly>
+                  </td>
+                  <td>
+                      <b>Shop Name:</b>
+                  </td>
+                  <td>
+                      <input type="text" value="{{customer.shopName}}" readonly>
+                  </td>
+             </tr>
+             <tr>
+                  <td>
+                      <b>Gst No:</b>
+                  </td>
+                  <td> 
+                      <input type="text" value="{{customer.gstNo}}" readonly>
+                  </td>
+                  <td>
+                      <b>State:</b>
+                  </td>
+                  <td>
+                      <input type="text" value="{{customer.state}}" readonly>
+                  </td>
+             </tr>
+          </table>
+      </div>   
+      <div class="col-md-12">
+        
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr style="background-color: #f9f9f9;">
+                <th>SNO</th>
+                <th>ITEM DETAILS</th>
+                <th>QUANTITY</th>
+                <th>PRICE</th>
+                <th>AMOUNT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of rows;let index = index">
+                <td><input placeholder="SNO" type="text" class="form-control" name="sno" id="sno" [(ngModel)]="row.sno"/></td>
+                <td><input placeholder="Item Details" type="text" class="form-control" name="ItemDetails" id="itemDetails" [(ngModel)]="row.itemDetails"/></td>
+                <td><input placeholder="Quantity" type="number" class="form-control" name="Qty" id="Qty" [(ngModel)]="row.qty" (change)="addAmount(row)"/></td>
+                <td><input placeholder="Price" type="number" class="form-control" name="Price" id="Price" [(ngModel)]="row.price" (change)="addAmount(row)"/></td>
+                <td><input placeholder="Amount" type="number" class="form-control" [value]="row.Amount" name="Amount" id="amount" [(ngModel)]="row.amount" readonly /></td>
+                <td><span class="fa fa-plus-circle icon tbl-icons" (click)="add()"></span><span (click)="remove(row)" class="fa fa-minus-circle icon tbl-icons" style="margin-left: 5px;"></span></td>
+              </tr>
+              <tr>
+                <td colspan="3"></td>
+                <td> SUB TOTAL</td>
+                <td><input placeholder="Sub Total" type="number" class="form-control" name="Sub Total" id="subTotal" [(ngModel)]="subTotal" readonly/></td>
+              </tr>
+              <tr>
+                  <td colspan="2"></td>
+                  <td> Shipping Charges</td>
+                  <td><input placeholder="Sub Total" type="number" class="form-control" name="Shipping Charges" id="iShippingCharges" [(ngModel)]="shippingCharges"  (ngModelChange)="addshippingCharges(shippingCharges)"/></td>
+                  <td><input placeholder="Sub Total" type="number" class="form-control" name="Shipping Charges" id="shippingCharges" [(ngModel)]="shippingCharges" readonly/></td>
+              </tr>
+              <tr>
+                  <td colspan="3"></td>
+                  <td> TOTAL</td>
+                  <td><input placeholder="Sub Total" type="number" class="form-control" name="Total" id="Total" [(ngModel)]="Total" readonly/></td>
+              </tr>
+  
+              <tr>
+                  <td colspan="2"></td>
+                  <td> IGST</td>
+                  <td> 
+                    <select name="select" id="igstPercentage" (change)="addGst($event.target.value)" class="form-control" >
+                      <option value="0">0%</option>
+                      <option value="5">5%</option>
+                      <option value="8">8%</option>
+                      <option value="10">10%</option>
+                    </select>
+                  </td>
+                  <td><input placeholder="GST Amount" type="number" class="form-control" name="GST AMOUNT" id="gstAmount" [(ngModel)]="gstAmount" readonly/></td>
+              </tr>
+              <tr>
+                  <td colspan="3"></td>
+                  <td> GRAND TOTAL</td>
+                  <td><input placeholder="GRAND Total" type="number" class="form-control" name="Grand Total" id="gTotal" [(ngModel)]="gTotal" readonly/></td>
+              </tr>
+            </tbody>
+          </table>
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-success" (click)="save()">Save</button>
+          <button class="btn btn-success" (click)="cancelInvoice()">Cancel</button>
+        </div>  
+      </div>
+    </card>
+    </div>
+  </div>
+  

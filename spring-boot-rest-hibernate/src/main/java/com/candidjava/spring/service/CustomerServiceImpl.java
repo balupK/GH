@@ -1,5 +1,7 @@
 package com.candidjava.spring.service;
 
+import java.io.IOException;
+import java.sql.Blob;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +41,14 @@ public class CustomerServiceImpl implements CustomerService{
 		customerDao.delete(customer);
 	}
 
-	public void createCustomerWithImage(Customer customerObject, MultipartFile file) {
+	public void createCustomerWithImage(Customer customerObject, MultipartFile file) throws IOException {
+
+
 
 		int id =(int) customerDao.saveObject(customerObject);
+
+		Blob blob = customerDao.createBlobObject(file);
+
 		if (id > 0) {
 			System.out.println(file.getName());
 		}

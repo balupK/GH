@@ -74,7 +74,7 @@ public class CustomerController {
 	 }
 
 	 @PostMapping(value="/addCustomer",headers="Accept=application/json")
-	 public ResponseEntity<String> addCustomer(@RequestParam String customer,
+	 public ResponseEntity<String> addCustomer(@RequestParam("customer") String customer,
 			                                   @RequestParam("file") MultipartFile file) throws JsonParseException, JsonMappingException, IOException{
 		 Customer customerObject  = new ObjectMapper().readValue(customer, Customer.class);
 

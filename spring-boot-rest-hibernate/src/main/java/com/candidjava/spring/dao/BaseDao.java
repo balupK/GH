@@ -1,7 +1,11 @@
 package com.candidjava.spring.dao;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public interface BaseDao<T extends GenericDao> {
 
@@ -27,4 +31,6 @@ public interface BaseDao<T extends GenericDao> {
 	public void delete(T object);
 
 	public Serializable saveObject(T object);
+
+	public Blob createBlobObject(MultipartFile file) throws IOException;
 }

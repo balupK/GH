@@ -27,6 +27,10 @@ export class UserProfileService {
     return this.http.post(this.BASE_URl + "user/createCustomer",profile);
   }
 
+  postUserProfileWithFile(profile) {
+    return this.http.post(this.BASE_URl + "user/addCustomerWithFile",profile);
+  }
+
   postInvoice(invoiceData) {
     return this.http.post(this.BASE_URl + "invoice/new",invoiceData);
   }

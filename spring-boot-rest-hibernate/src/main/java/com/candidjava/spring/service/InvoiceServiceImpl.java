@@ -24,7 +24,8 @@ public class InvoiceServiceImpl implements InvoiceService{
 
 
 	public void addNewInvoice(Invoice invoice) {
-		invoiceDao.save(invoice);
+		int id =(int) invoiceDao.saveObject(invoice);
+		//invoiceDao.save(invoice);
 	}
 
 	public List<Customer> getAllCustomers() {

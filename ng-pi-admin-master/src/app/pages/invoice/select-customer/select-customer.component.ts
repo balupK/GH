@@ -67,7 +67,7 @@ export class SelectCustomerComponent implements OnInit {
     console.log(resp);
     this.rows = resp;
     
-    // this.temp = JSON.parse(JSON.stringify(resp));
+    this.temp = JSON.parse(JSON.stringify(resp));
     });
   }
 

@@ -1,12 +1,16 @@
 package com.candidjava.spring.dao;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 @Repository
 public abstract class BaseDaoImpl<T extends GenericDao> extends HibernateDaoSupport  implements BaseDao<T> {
 
@@ -61,6 +65,13 @@ public abstract class BaseDaoImpl<T extends GenericDao> extends HibernateDaoSupp
 		// TODO Auto-generated method stub
 		return super.createHibernateTemplate(sessionFactory);
 	}
+
+	@Override
+	public Blob createBlobObject(MultipartFile file) throws IOException {
+		Blob blob = Hibernate.getLobCreator(currentSession()).createBlob(file.getInputStream(), file.getSize());
+		return blob;
+	}
+
 
 
 

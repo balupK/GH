@@ -1,5 +1,6 @@
 package com.candidjava.spring.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.candidjava.spring.bean.Customer;
 import com.candidjava.spring.bean.User;
 import com.candidjava.spring.service.CustomerService;
 import com.candidjava.spring.service.UserService;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping(value={"/user"})
@@ -104,4 +110,14 @@ public class UserController {
 		User usr =	userService.updatePartially(currentUser, id);
 		return new ResponseEntity<User>(usr, HttpStatus.OK);
 	}
+
+	 @PostMapping(value="/addCustomerWithFile",headers="Accept=application/json")
+	 public ResponseEntity<String> addCustomerWithFile(@RequestParam("customer") String customer,
+			                                   @RequestParam("file") MultipartFile file) throws JsonParseException, JsonMappingException, IOException{
+		 Customer customerObject  = new ObjectMapper().readValue(customer, Customer.class);
+
+
+	     customerService.createCustomerWithImage(customerObject, file);
+	     return new ResponseEntity<String>(HttpStatus.OK);
+	 }
 }
